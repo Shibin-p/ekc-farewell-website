@@ -1,0 +1,68 @@
+// Firestore Security Rules for Farewell Invitation App
+// Copy this entire content and paste it in:
+// Firebase Console → Firestore Database → Rules → Publish
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ─────────────────────────────────────────────────────────────────────
+    // Website Statistics Collection (public read-only)
+    // ─────────────────────────────────────────────────────────────────────
+    match /website_stats/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    // ─────────────────────────────────────────────────────────────────────
+    // RSVPs Collection (public write for new submissions, strict validation)
+    // ─────────────────────────────────────────────────────────────────────
+    match /rsvps/{document=**} {
+      allow read: if true;
+      allow create: if validateRsvpData(request.resource.data);
+      allow update, delete: if false;
+      
+      // ───────────────────────────────────────────────────────────────────
+      // Validation Function for RSVP Data
+      // ───────────────────────────────────────────────────────────────────
+      function validateRsvpData(data) {
+        // Ensure all required fields are present
+        let hasAllFields = data.keys().hasAll(['name', 'department', 'phone', 'attending', 'timestamp']);
+        
+        // Ensure no extra fields (exactly 5 fields)
+        let hasExactFields = data.size() == 5;
+        
+        // Validate field types and content
+        let validName = data.name is string && data.name.size() > 0 && data.name.size() <= 100;
+        
+        let validDept = data.department is string && 
+                        data.department in ['CSE', 'ECE', 'ME', 'SFE', 'CE'];
+        
+        let validPhone = data.phone is string && 
+                         data.phone.size() >= 10 && 
+                         data.phone.size() <= 12 &&
+                         data.phone.matches('[0-9]+');
+        
+        let validAttending = data.attending is bool;
+        
+        let validTimestamp = data.timestamp is timestamp;
+        
+        // Return true only if all validations pass
+        return hasAllFields && 
+               hasExactFields && 
+               validName && 
+               validDept && 
+               validPhone && 
+               validAttending && 
+               validTimestamp;
+      }
+    }
+    
+    // ─────────────────────────────────────────────────────────────────────
+    // Deny all other access (default deny)
+    // ─────────────────────────────────────────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

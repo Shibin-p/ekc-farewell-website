@@ -1,0 +1,191 @@
+Create a world-class premium farewell invitation website for our graduating seniors.
+
+This should NOT look like a normal college event website. It should feel like a luxury event invitation, similar to a premium Apple product launch page, high-end wedding invitation website, or cinematic graduation experience.
+
+Design Requirements:
+
+
+* Add glassmorphism effects throughout the website.
+* Use smooth gradients, glowing borders, soft shadows, premium typography, and elegant spacing.
+* Use modern animations powered by Framer Motion.
+* Every section should animate beautifully as the user scrolls.
+* Add subtle floating particles, glowing lights, shimmer effects, and cinematic transitions.
+* Use premium micro-interactions on buttons, cards, and navigation.
+* The entire website must feel emotional, memorable, and prestigious.
+
+Background:
+
+* Use a full-screen hero section.
+* Place a transparent and softly blurred image of our college campus/building in the background.
+* Add dark overlays for readability.
+* Add animated light rays and glow effects.
+* Create a cinematic opening experience.
+
+Hero Section:
+
+Display:
+
+"FAREWELL 2026"
+
+"Every Ending Creates a New Beginning"
+
+Also, for the event name and logo, keep them configurable through a single settings file like:
+export const eventConfig = {
+  eventName: "Farewell 2026",
+  logo: "/logo.png"
+};
+(for now give a dummy name and logo)
+*add college logo somewhere
+*our college name is eranad knowledge city technical campus(short called : EKC)
+*logo file name : ekclogo.png
+*college photo file name : ekcphoto.png
+
+Include:
+
+* Event Date
+* Event Time
+* Venue
+* Elegant Call-to-Action button
+* Animated graduation cap elements
+* Smooth entrance animations
+
+Countdown Timer:
+
+Create a beautiful live countdown timer showing:
+
+Days
+Hours
+Minutes
+Seconds
+
+-the date is 17/07,2026, 2:00 PM
+
+The countdown should have glowing animated cards and premium transitions.
+
+Invitation Section:
+
+Create a heartfelt invitation message from juniors to seniors.
+
+The message should be emotional, respectful, and inspiring.
+
+Use beautiful typography and animated text reveals.
+
+RSVP Section:
+
+Create a premium RSVP form with:
+
+* Full Name
+* Department
+* Phone Number
+* Attendance Status
+
+Options:
+
+✓ I Will Attend
+✗ I Cannot Attend
+
+
+* add dropdown menu for department with values
+-CSE
+-ECE
+-ME
+-SFE
+-cE
+
+Store all data in Firebase Firestore.
+
+Show success animation after submission.
+
+Analytics:
+
+Track:
+
+* Total website visits
+* Unique visitors
+* RSVP submissions
+* Total attending
+* Total not attending
+
+Store analytics in Firebase.
+
+---Admin Dashboard:
+
+Create a secure admin dashboard.
+
+Display:
+
+* Total visitors
+* Unique visitors
+* Total RSVP responses
+* Total attending
+* Total not attending
+* Attendance percentage
+* the admin panel could be only visited by admins using firebase authenticaton(email and password)
+
+Add charts and analytics cards.
+
+Provide searchable table view of all RSVP responses.
+
+Columns:
+
+Name
+Department
+Phone
+Attendance
+Guests
+Timestamp
+
+Export Features:
+
+Add:
+
+* Export to Excel (.xlsx)
+* Export to CSV
+* Print attendee list
+
+Animations:
+
+Use advanced Framer Motion animations.
+
+Include:
+
+* Scroll-triggered reveals
+* Parallax effects
+* Smooth page transitions
+* Hover glow effects
+* Floating particles
+* Gradient animations
+* Animated counters
+* Text reveal effects
+* Staggered card animations
+
+Navigation:
+
+Create a premium floating navigation bar with glassmorphism effect.
+
+Include smooth scrolling between sections.
+
+Footer:
+
+Create an elegant farewell footer with a memorable quote about friendship, memories, and new beginnings.
+
+Technical Requirements:
+
+* React + Vite
+* Tailwind CSS
+* Framer Motion
+* Firebase Firestore
+* Firebase Analytics
+* Fully responsive
+* Mobile-first design
+* Fast loading
+* Production-ready code
+* Clean component architecture
+
+Important:
+
+Do not create a generic template.
+
+Use your own creativity to make the design feel luxurious, emotional, cinematic, memorable, modern, and award-worthy.
+
+Aim for a website that looks like it was designed by a professional creative agency rather than a student project.
